@@ -7,7 +7,7 @@ phases:
       - pip install -r asg2/requirements.txt
   build:
     commands:
-      - cd asg2 && pytest -q
+      - PYTHONPATH=asg2 pytest -q asg2/tests
       - mkdir -p asg2/dist
       - echo "Build completed" > asg2/dist/build.txt
 artifacts:
