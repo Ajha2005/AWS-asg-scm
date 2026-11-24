@@ -1,13 +1,11 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      python: 3.12
     commands:
       - pip install -r asg2/requirements.txt
   build:
     commands:
-      - PYTHONPATH=asg2 pytest -q asg2/tests
+      - PYTHONPATH=asg2:$PYTHONPATH python -m pytest -q asg2/tests
       - mkdir -p asg2/dist
       - echo "Build completed" > asg2/dist/build.txt
 artifacts:
